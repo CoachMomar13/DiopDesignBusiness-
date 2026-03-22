@@ -1,2 +1,2 @@
 # DiopDesignBusiness-
-Design&amp;Equipement Sportif
+Vente et Création de Design&amp;Equipement Sportif
