@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiopDesignBusiness</title>
+  <meta name="description" content="DiopDesignBusiness - Design graphique et vente de matériels sportifs au Sénégal." />
+  <style>
+    :root{
+      --blue:#0d6efd;
+      --blue-dark:#0b4fb3;
+      --white:#ffffff;
+      --light:#f5f9ff;
+      --text:#122033;
+      --muted:#5b6b80;
+      --card:#ffffff;
+      --border:#dfe9f7;
+      --shadow:0 10px 30px rgba(13,110,253,.12);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#f8fbff 0%, #eef5ff 100%);
+      line-height:1.6;
+    }
+    img{max-width:100%}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px, 92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:1000;
+      backdrop-filter:blur(8px);
+      background:rgba(255,255,255,.9);
+      border-bottom:1px solid rgba(13,110,253,.08);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;gap:16px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .brand img{width:58px;height:58px;object-fit:cover;border-radius:12px;border:1px solid var(--border);background:#fff}
+    .brand .name{font-size:1.05rem}
+    .menu{display:flex;gap:16px;flex-wrap:wrap;font-size:.95rem}
+    .menu a{padding:8px 10px;border-radius:10px}
+    .menu a:hover{background:var(--light);color:var(--blue-dark)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;padding:13px 20px;border-radius:999px;
+      background:var(--blue);color:#fff;font-weight:700;box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px);background:var(--blue-dark)}
+    .btn-outline{
+      background:#fff;color:var(--blue);border:1px solid var(--blue);box-shadow:none;
+    }
+    .hero{padding:72px 0 44px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+    .badge{
+      display:inline-block;padding:8px 14px;border-radius:999px;
+      background:#e8f1ff;color:var(--blue-dark);font-weight:700;font-size:.9rem;border:1px solid #d7e6ff;
+    }
+    h1{font-size:clamp(2rem, 4vw, 4rem);line-height:1.08;margin:18px 0 16px}
+    .lead{font-size:1.08rem;color:var(--muted);max-width:720px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+    .hero-card,.card,.contact-box,.owner-card{
+      background:linear-gradient(180deg,#ffffff,#f8fbff);
+      border:1px solid var(--border);
+      border-radius:24px;box-shadow:var(--shadow)
+    }
+    .hero-card{padding:16px}
+    .hero-card img{width:100%;border-radius:18px;display:block;object-fit:cover;max-height:560px}
+    section{padding:34px 0}
+    .section-title{font-size:2rem;margin:0 0 8px;text-align:center}
+    .section-text{text-align:center;color:var(--muted);max-width:780px;margin:0 auto 28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .card{padding:22px}
+    .icon{
+      width:54px;height:54px;border-radius:14px;background:#eaf2ff;color:var(--blue-dark);
+      display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:10px
+    }
+    .card h3{margin:8px 0}
+    .card p{color:var(--muted);margin:0}
+    .price{margin-top:12px;font-weight:700;color:var(--blue-dark)}
+    .product{overflow:hidden;padding:0}
+    .product .photo{
+      height:170px;background:linear-gradient(135deg,#d8e9ff,#ffffff);
+      display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--blue-dark);
+      border-bottom:1px solid var(--border)
+    }
+    .product .body{padding:18px}
+    .product small{color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .gallery-item{
+      background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)
+    }
+    .gallery-item img{width:100%;height:290px;object-fit:cover;display:block}
+    .gallery-art{
+      height:220px;padding:22px;color:#fff;display:flex;flex-direction:column;justify-content:space-between
+    }
+    .g1{background:linear-gradient(135deg,#0d6efd,#62a4ff)}
+    .g2{background:linear-gradient(135deg,#002b6f,#0d6efd)}
+    .g3{background:linear-gradient(135deg,#4da3ff,#0b4fb3)}
+    .g4{background:linear-gradient(135deg,#0b4fb3,#9ec5fe)}
+    .g5{background:linear-gradient(135deg,#1b74e4,#012a63)}
+    .gallery-item .caption{padding:16px 18px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+    .contact-box{padding:24px}
+    .contact-box p{margin:10px 0;color:var(--muted)}
+    .contact-box strong{color:var(--text)}
+    .owner-section{display:grid;grid-template-columns:.92fr 1.08fr;gap:26px;align-items:center}
+    .owner-card{padding:14px}
+    .owner-card img{width:100%;height:520px;object-fit:cover;border-radius:18px;display:block}
+    .tag-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .tag{padding:8px 12px;border-radius:999px;background:#edf4ff;color:var(--blue-dark);font-size:.9rem}
+    footer{margin-top:22px;background:#0f1f35;color:#dbe8ff;padding:28px 0}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+    .whatsapp-float{
+      position:fixed;right:18px;bottom:18px;z-index:1500;background:#25D366;color:#fff;
+      padding:14px 18px;border-radius:999px;box-shadow:0 10px 24px rgba(37,211,102,.35);font-weight:700
+    }
+    @media (max-width: 980px){
+      .hero-grid,.split,.owner-section{grid-template-columns:1fr}
+      .grid-3,.grid-4{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .menu{display:none}
+      .owner-card img{height:420px}
+    }
+    @media (max-width: 560px){
+      .grid-3,.grid-4,.gallery{grid-template-columns:1fr}
+      .hero{padding-top:48px}
+      .owner-card img{height:auto}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.jpeg" alt="Logo DiopDesignBusiness">
+        <div>
+          <div class="name">DiopDesignBusiness</div>
+          <small style="color:#5b6b80">Design & Matériels sportifs</small>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services de design</a>
+        <a href="#boutique">Boutique sport</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="https://wa.me/221781694568?text=Bonjour%20DiopDesignBusiness%2C%20je%20souhaite%20passer%20une%20commande." target="_blank">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Création graphique • Vente d'équipements sportifs</span>
+          <h1>DiopDesignBusiness, votre espace pour les designs professionnels et les matériels sportifs.</h1>
+          <p class="lead">
+            Nous proposons des <strong>affiches</strong>, <strong>flyers</strong>, <strong>logos</strong> et <strong>CV</strong> au design moderne,
+            ainsi qu'une sélection de <strong>matériels sportifs</strong> pour l'entraînement, le basket et la préparation physique.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Découvrir mes services</a>
+            <a class="btn btn-outline" href="#boutique">Voir les produits</a>
+          </div>
+          <div class="tag-list">
+            <span class="tag">Affiche 3000 à 5000 FCFA</span>
+            <span class="tag">Logo 3000 FCFA</span>
+            <span class="tag">Flyer 4000 FCFA</span>
+            <span class="tag">CV 2000 FCFA</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="logo.jpeg" alt="Logo de DiopDesignBusiness">
+        </div>
+      </div>
+    </section>
+
+    <section id="owner">
+      <div class="container owner-section">
+        <div class="owner-card">
+          <img src="owner.jpeg" alt="Propriétaire de DiopDesignBusiness">
+        </div>
+        <div class="contact-box">
+          <h2>Le propriétaire</h2>
+          <p><strong>Voici le fondateur de DiopDesignBusiness.</strong> Cette section met une image réelle du propriétaire pour donner plus de crédibilité, de proximité et de confiance au site.</p>
+          <p>Le site a été préparé pour présenter à la fois votre activité de <strong>designer</strong> et votre activité de <strong>vente de matériels sportifs</strong>.</p>
+          <p>Vous pourrez remplacer cette photo plus tard, ajouter d'autres images, modifier les textes, changer les prix et compléter le site comme vous le souhaitez.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Me contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Services de design</h2>
+        <p class="section-text">Des créations visuelles propres, efficaces et adaptées à vos clients, événements et besoins professionnels.</p>
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon">🖼️</div>
+            <h3>Affiches</h3>
+            <p>Affiches pour événements, cérémonies, promotions, tournois et annonces diverses.</p>
+            <div class="price">Prix : 3000 à 5000 FCFA</div>
+          </div>
+          <div class="card">
+            <div class="icon">📣</div>
+            <h3>Flyers</h3>
+            <p>Flyers publicitaires et visuels de communication adaptés à l'impression et aux réseaux sociaux.</p>
+            <div class="price">Prix : 4000 FCFA</div>
+          </div>
+          <div class="card">
+            <div class="icon">✍️</div>
+            <h3>Logos</h3>
+            <p>Création de logos simples, modernes et professionnels pour activités, marques et projets.</p>
+            <div class="price">Prix : 3000 FCFA</div>
+          </div>
+          <div class="card">
+            <div class="icon">📄</div>
+            <h3>CV professionnels</h3>
+            <p>CV bien présentés, modernes et propres pour candidatures étudiantes et professionnelles.</p>
+            <div class="price">Prix : 2000 FCFA</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="boutique">
+      <div class="container">
+        <h2 class="section-title">Boutique sport</h2>
+        <p class="section-text">Quelques exemples de matériels sportifs proposés avec leurs prix. Vous pourrez ajouter d'autres produits quand vous voulez.</p>
+        <div class="grid-4">
+          <div class="card product">
+            <div class="photo">👟</div>
+            <div class="body">
+              <h3>Chaussures de basket</h3>
+              <small>Pour entraînement, loisirs et compétition.</small>
+              <div class="price">14 000 à 20 000 FCFA</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🧦</div>
+            <div class="body">
+              <h3>Chaussettes élite</h3>
+              <small>Confort, maintien et style pour sportifs.</small>
+              <div class="price">2 000 à 3 500 FCFA</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🪢</div>
+            <div class="body">
+              <h3>Élastiques</h3>
+              <small>Différents niveaux et modèles pour la résistance.</small>
+              <div class="price">10 000 • 8 000 • 5 000 • 2 000 FCFA</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🔁</div>
+            <div class="body">
+              <h3>Corde</h3>
+              <small>Pour échauffement, cardio et coordination.</small>
+              <div class="price">2 000 FCFA</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🚩</div>
+            <div class="body">
+              <h3>Plots</h3>
+              <small>Parfaits pour ateliers, parcours et exercices.</small>
+              <div class="price">50 plots : 25 000 FCFA</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🎽</div>
+            <div class="body">
+              <h3>Chasubles</h3>
+              <small>Idéales pour équipes et séances d'opposition.</small>
+              <div class="price">12 chasubles : 10 000 FCFA</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🏋️</div>
+            <div class="body">
+              <h3>Matériels d'entraînement</h3>
+              <small>Équipements utiles pour la préparation physique.</small>
+              <div class="price">Tarifs sur demande</div>
+            </div>
+          </div>
+          <div class="card product">
+            <div class="photo">🏀</div>
+            <div class="body">
+              <h3>Produits basket</h3>
+              <small>Articles sélectionnés pour basketteurs et équipes.</small>
+              <div class="price">Disponibilité sur commande</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie">
+      <div class="container">
+        <h2 class="section-title">Galerie / Réalisations</h2>
+        <p class="section-text">Le site contient maintenant un vrai exemple de votre travail, avec votre affiche ajoutée dans la galerie.</p>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="poster.jpeg" alt="Exemple d'affiche réalisée par DiopDesignBusiness">
+            <div class="caption"><strong>Exemple réel :</strong> affiche événementielle réalisée par DiopDesignBusiness</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-art g1">
+              <div><strong>Affiche sportive</strong></div>
+              <div style="font-size:2rem;font-weight:700">MATCH<br>TOURNOI</div>
+              <div>Style dynamique et impactant</div>
+            </div>
+            <div class="caption"><strong>Exemple type :</strong> visuel sport et compétition</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-art g2">
+              <div><strong>Flyer promo</strong></div>
+              <div style="font-size:2rem;font-weight:700">OFFRE<br>FLASH</div>
+              <div>Communication claire</div>
+            </div>
+            <div class="caption"><strong>Exemple type :</strong> flyer commercial</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-art g3">
+              <div><strong>Logo branding</strong></div>
+              <div style="font-size:2rem;font-weight:700">DDB</div>
+              <div>Image de marque simple</div>
+            </div>
+            <div class="caption"><strong>Exemple type :</strong> proposition de logo</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-art g4">
+              <div><strong>CV moderne</strong></div>
+              <div style="font-size:2rem;font-weight:700">CURRICULUM<br>VITAE</div>
+              <div>Présentation professionnelle</div>
+            </div>
+            <div class="caption"><strong>Exemple type :</strong> CV professionnel</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-art g5">
+              <div><strong>Post réseaux</strong></div>
+              <div style="font-size:2rem;font-weight:700">SOCIAL<br>MEDIA</div>
+              <div>Format digital attractif</div>
+            </div>
+            <div class="caption"><strong>Exemple type :</strong> publication réseaux sociaux</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <div class="container split">
+        <div class="contact-box">
+          <h2>À propos</h2>
+          <p><strong>DiopDesignBusiness</strong> combine deux activités : le design graphique et la vente de matériels sportifs.</p>
+          <p>Nous accompagnons étudiants, particuliers, associations, équipes sportives et petites structures avec des visuels modernes et des équipements utiles pour l'entraînement et la compétition.</p>
+          <p><strong>Adresse 1 :</strong> Village I, Campus 2, UGB</p>
+          <p><strong>Adresse 2 :</strong> Montagne Sud, Louga, Sénégal</p>
+        </div>
+        <div class="contact-box" id="contact">
+          <h2>Contact</h2>
+          <p><strong>Email :</strong> <a href="mailto:dioppapa216@gmail.com">dioppapa216@gmail.com</a></p>
+          <p><strong>Téléphone :</strong> <a href="tel:+221781694568">+221 781694568</a></p>
+          <p><strong>WhatsApp :</strong> <a href="https://wa.me/221781694568" target="_blank">Commander sur WhatsApp</a></p>
+          <p><strong>Instagram :</strong> <a href="https://instagram.com/Coach_momar" target="_blank">@Coach_momar</a></p>
+          <p><strong>Facebook :</strong> Papa diop</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/221781694568?text=Bonjour%20DiopDesignBusiness%2C%20je%20souhaite%20passer%20une%20commande." target="_blank">Commande WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="contact-box">
+          <h2>Modification du site</h2>
+          <p><strong>Oui, comme vous êtes le propriétaire, vous avez le droit de modifier le site.</strong></p>
+          <p>Le fichier que je vous ai préparé est un site HTML simple. Cela veut dire que vous pouvez changer les textes, les prix, les photos, ajouter d'autres produits, ajouter d'autres pages ou demander à quelqu'un de le faire pour vous plus tard.</p>
+          <p>Vous pouvez aussi me renvoyer de nouvelles informations et je vous prépare une version encore plus complète.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/221781694568?text=Bonjour%20DiopDesignBusiness%2C%20je%20souhaite%20avoir%20plus%20d'informations." target="_blank">WhatsApp</a>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>DiopDesignBusiness</strong><br>
+        Design graphique • Boutique sport
+      </div>
+      <div>
+        Contact : dioppapa216@gmail.com • +221 781694568
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
